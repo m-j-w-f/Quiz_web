@@ -3,8 +3,10 @@ import requests
 
 
 def translateT(text: list) -> str:
+    wd = ""
+    
     config = configparser.ConfigParser()
-    config.read('.env')
+    config.read(wd + '.env')
     key = config["section"]["API_KEY"]
     query = {"target_lang": "DE",
              "auth_key": key,

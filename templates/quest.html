@@ -42,10 +42,10 @@
 
 <div>
     {% for answer in question.answers %}
-        {% if loop.index == correct_index %}
-            <button class="btn btn-primary" onclick="proceed(true);">{{ answer }}</button>
+        {% if loop.index0 == correct_index %}
+            <button class="btn btn-primary m-3 p-3" onclick="proceed(true);">{{ answer }}</button>
         {% else %}
-            <button class="btn btn-primary" onclick="proceed(false)">{{ answer }}</button>
+            <button class="btn btn-primary m-3 p-3" onclick="proceed(false)">{{ answer }}</button>
         {% endif %}
     {% endfor %}
 </div>

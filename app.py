@@ -16,15 +16,17 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
+wd=""
+
 config = configparser.ConfigParser()
-config.read('.env')
+config.read(wd + ".env")
 API_KEY = config["section"]["API_KEY"]
 
 if not API_KEY:
     raise RuntimeError("API_KEY not set")
 
 
-db = "database.db"
+db = wd + "database.db"
 gme = None
 
 @app.after_request
