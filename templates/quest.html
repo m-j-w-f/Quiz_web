@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Question
+{% endblock %}
+
+{% block translate %}
+    <li class="nav-item">
+        <a class="nav-link" href="quest?translate=t">Translate</a>
+    </li>
+{% endblock %}
+
+
+
+{% block main %}
+<script>
+    function proceed (correct) {
+        my_form=document.createElement('FORM');
+        my_form.name='myForm';
+        my_form.method='POST';
+        my_form.action='/quest';
+
+        my_tb=document.createElement('INPUT');
+        my_tb.type='TEXT';
+        my_tb.name='correct';
+        my_tb.value=correct;
+        my_form.appendChild(my_tb);
+
+        document.body.appendChild(my_form);
+        my_form.submit()
+}
+</script>
+
+
+<div class="container">
+    <div class="section">
+        <h3>{{ question.question }}</h3>
+    </div>
+</div>
+
+
+
+<div>
+    {% for answer in question.answers %}
+        {% if loop.index == correct_index %}
+            <button class="btn btn-primary" onclick="proceed(true);">{{ answer }}</button>
+        {% else %}
+            <button class="btn btn-primary" onclick="proceed(false)">{{ answer }}</button>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% endblock %}

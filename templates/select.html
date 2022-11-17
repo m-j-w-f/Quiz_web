@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Select
+{% endblock %}
+
+{% block main %}
+<form action="/select" method="post">
+    <div class="mb-3">
+        <select name="category">
+            {% for value, key in categories.items()%}
+            <option value="{{ key }}">{{ value }}</option>
+            {% endfor %}
+          </select>
+    </div>
+    <div class="mb-3">
+        <select name="diff">
+            {% for d in diff%}
+            <option value="{{ d }}">{{ d }}</option>
+            {% endfor %}
+          </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Select</button>
+</form>
+{% endblock %}
