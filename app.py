@@ -80,8 +80,6 @@ def quest():
             return render_template("quest.html", question=gme.question, correct_index=gme.question.correct_index)
 
         
-
-
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Log user in"""
