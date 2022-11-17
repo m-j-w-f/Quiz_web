@@ -1,4 +1,4 @@
 credentials.py
-/.vscode
+.*
 /flask_session
 /__pycache__
