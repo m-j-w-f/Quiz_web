@@ -1,9 +1,11 @@
-import os
+import configparser
 import requests
 
 
 def translateT(text: list) -> str:
-    key = os.environ.get("API_KEY")
+    config = configparser.ConfigParser()
+    config.read('.env')
+    key = config["section"]["API_KEY"]
     query = {"target_lang": "DE",
              "auth_key": key,
              "text": text,
